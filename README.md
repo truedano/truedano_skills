@@ -47,26 +47,12 @@ truedano_skills/
 
 ---
 
-### 安裝與整合方式
+### 使用方式 (Usage)
 
-#### 方法一：在 Google Antigravity / Claude Code 中全域掛載
+本倉庫的 Skills 遵循標準 Agent Skill 規範（以包含 YAML Frontmatter 的 `SKILL.md` 為核心）。您可透過以下方式使用：
 
-將本倉庫內的技能目錄連結或複製至 Agent 預設讀取的 Skill 目錄：
-
-**Windows (PowerShell 符號連結範例)**：
-```powershell
-# 以 Antigravity 為例：
-New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gemini\config\skills\lesson-prep-converter" -Target "D:\git_area\truedano_skills\skills\lesson-prep-converter"
-```
-
-**macOS / Linux**：
-```bash
-ln -s "$(pwd)/skills/lesson-prep-converter" ~/.config/antigravity/skills/lesson-prep-converter
-```
-
-#### 方法二：專案級掛載
-
-直接在目標專案的 `.agent/skills/` 或 `.claude/skills/` 目錄中引入對應的 Skill 資料夾，或於任務對話中直接引用 `SKILL.md` 的路徑作為 Instruction 上下文。
+1. **直接作為任務提示詞 (Direct Reference)**：在任何支援長文本與自訂指令的 AI 工具中，直接引用或載入對應技能的 `SKILL.md` 作為執行規範。
+2. **掛載至支援 Agent Skills 的系統**：若您使用的 Coding Agent 支援外掛自訂技能，直接將 `skills/<skill-name>/` 目錄加入您的 Agent 技能路徑即可。
 
 ---
 
@@ -128,25 +114,12 @@ Scans and ingests heterogeneous teaching materials (scanned book images, PDFs, W
 
 ---
 
-### Installation & Usage
+### Usage
 
-#### Option 1: Global Registration (Google Antigravity / Claude Code)
+The skills in this repository follow the standard Agent Skill specification (centered around `SKILL.md` with YAML frontmatter). You can use them via:
 
-Symlink or copy individual skill folders into your agent configuration directory:
-
-**Windows (PowerShell)**:
-```powershell
-New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.gemini\config\skills\lesson-prep-converter" -Target "D:\git_area\truedano_skills\skills\lesson-prep-converter"
-```
-
-**macOS / Linux**:
-```bash
-ln -s "$(pwd)/skills/lesson-prep-converter" ~/.config/antigravity/skills/lesson-prep-converter
-```
-
-#### Option 2: Project-Level Usage
-
-Place the skill under your workspace's `.agent/skills/` or reference the path to `SKILL.md` directly during prompting to provide context.
+1. **Direct Reference**: Provide or load the target `SKILL.md` file as instructions/prompt in any LLM or AI coding tool.
+2. **Coding Agent Integration**: If your coding agent supports custom skills directories, add or link `skills/<skill-name>/` directly into your agent's configured skills path.
 
 ---
 
